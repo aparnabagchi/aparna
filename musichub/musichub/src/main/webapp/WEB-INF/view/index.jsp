@@ -70,6 +70,7 @@ text-align: center;
                 <li><a href="AboutUs">About Us</a></li>
                 <li><a href="contactUs">Contact Us</a></li>
                 <li><a href="product">All Product</a></li>
+               
             </ul>
             <ul class="nav navbar-nav navbar-right">
       <li><a href="signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -128,9 +129,9 @@ text-align: center;
 <table class="table" style="height: 60%; width: 120%">
    <tr>
    <td>
-   <img src="resources/images/images1.jpg" class="img-responsive img-circle" alt="Music Image">
-   <a href="product?item=Flute" >
-        <h4>Flute</h4></a>
+   <a href="product?item=Flute" > <img src="resources/images/images1.jpg" class="img-responsive img-circle" alt="Music Image"></a>
+   <div><a href="product?item=Flute" >
+       <h4>Flute</h4></a></div>
   </td>
    <td>
    <img src="resources/images/images3.jpg" class="img-responsive img-circle" alt="Music Image">

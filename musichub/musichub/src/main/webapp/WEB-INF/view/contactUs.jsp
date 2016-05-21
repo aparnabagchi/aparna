@@ -33,7 +33,7 @@
         <!-- Collection of nav links and other content for toggling -->
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="index">Home</a></li>
+                <li class="active"><a href="/musichub">Home</a></li>
                 <li><a href="AboutUs">About Us</a></li>
                 <li><a href="product">All Product</a></li>
                
