@@ -1,0 +1,7 @@
+com\test\dao\ProductDao.class
+com\test\model\ListClass.class
+com\test\model\Product.class
+com\test\controller\FurnitureController.class
+com\test\service\ProductsService.class
+com\test\dao\impl\ProductDaoImpl.class
+com\test\service\impl\ProductsServiceImpl.class
