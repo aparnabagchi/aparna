@@ -17,7 +17,7 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int productId;
 	public Product() {
 		// TODO Auto-generated constructor stub

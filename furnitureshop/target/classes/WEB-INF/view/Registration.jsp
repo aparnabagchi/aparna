@@ -13,10 +13,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>  
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
-  
+
 </head>
 <body>
-<nav role="navigation" class="navbar navbar-default">
+ <nav role="navigation" class="navbar navbar-default">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
@@ -25,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="index" class="navbar-brand">OnlineFurniture</a>
+            <a href="#" class="navbar-brand">OnlineFurniture</a>
         </div>
         <!-- Collection of nav links and other content for toggling -->
         <div id="navbarCollapse" class="collapse navbar-collapse">
@@ -33,57 +33,69 @@
                 <li class="active"><a href="/furnitureshop">Home</a></li>
                 <li><a href="AboutUs">About Us</a></li>
                 <li><a href="contactUs">Contact Us</a></li>
-                <li><a href="product">All Product</a></li>
+                <li><a href="product">Gallery</a></li>
+                <li><a href="Registration">Product Registration</a></li>
+               
             </ul>
             <ul class="nav navbar-nav navbar-right">
       <li><a href="signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      
+      <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
        
     </ul>
         </div>
 
     </nav>
+
+
 <section>
-	 <div align="center">
+	
+	 
+	  <div align="center">
         <form:form action="Registration.do" method="get" commandName="Registration">
-            <table border="1">
+           <table >
+        <thead>
                 <tr>
-                    <td colspan="2" align="center"><h2>Product Registration</h2></td>
+                    <th  align="center"><h2>Product Registration</h2></th>
                 </tr>
-                <tr>
-                    <td>Product Id:</td>
-                    <td><form:input path="productId" /></td>
+                </thead>
+                <tbody>
+                <tr class="success">
+                    <td >Product Id:</td>
+                    <td ><form:input path="productId" /></td>
                 </tr>
-                <tr>
+                <tr class="active">
                     <td>Group Name:</td>
                     <td><form:input path="groupName" /></td>
                 </tr>
-                <tr>
+                <tr class="success">
                     <td>Product Name:</td>
                     <td><form:input path="name" /></td>
                 </tr>
-                <tr>
+                <tr class="active">
                     <td>Description:</td>
                     <td><form:input path="description" /></td>
-                </tr>
-                <tr>
+                </tr >
+                <tr class="success">
                     <td>Product Quantity:</td>
                     <td><form:input path="quantity" /></td>
                 </tr>
-                <tr>
+                <tr class="active">
                     <td>Product Price:</td>
                     <td><form:input path="price" /></td>
                 </tr>
-                <tr>
+                <tr class="success">
                     <td>Product Image:</td>
                     <td><form:input path="imagePath" /></td>
                 </tr>
-                <tr>
-                    <td colspan="2"><input type="submit" name="action" value="Add"></td>
-                    <td colspan="2"><input type="submit" name="action" value="Edit"></td>
-                    <td colspan="2"><input type="submit" name="action" value="Delete"></td>
-                    <td colspan="2"><input type="submit" name="action" value="Search"></td>
+                <tr  class="success">
+                <br>
+                    <td style="padding":4px;"
+                    ><input type="submit" name="action" value="Add" onclick="location.href='/product'">
+                   <input type="submit" name="action" value="Update"></td>
+                    <td><input type="submit" name="action" value="Delete">
+                    <input type="submit" name="action" value="Search"></td> 
                 </tr>
+                <tbody>
             </table>
         </form:form>
         

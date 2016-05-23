@@ -1,9 +1,12 @@
 package com.test.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +33,21 @@ public class FurnitureController {
 	public ModelAndView contactPage() {
 		return new ModelAndView("contactUs");
 	}
+	@RequestMapping("/viewProduct")
+	public String getProductById(@RequestParam("productId") int productId, Model model){
+		Product p = productsService.getProduct(productId);
+		model.addAttribute("product", p);
+		return "viewProduct";
+	}
 
+
+@RequestMapping(value ="/deleteProduct" , method = RequestMethod.GET)
+	    public String deleteproduct(@RequestParam int productId) {
+			System.out.println("productid in controller "+productId);
+			productsService.delete(productId);
+	        return "redirect:product";
+	    }
+	
 	@RequestMapping(value = "/Login")
 	public ModelAndView loginPage() {
 
@@ -49,13 +66,16 @@ public class FurnitureController {
 		return new ModelAndView("AboutUs");
 	}
 
+	@RequestMapping(value = {"/product" }, method = RequestMethod.GET)
+    public String listproduct(ModelMap model) {
+ 
+        List<Product> products = productsService.getAllProducts();
+        model.addAttribute("products", products);
+        return "product";
+    }
 	
-	 @RequestMapping(value = "/test", method = RequestMethod.POST)
-	 public ModelAndView testPage() {
-	 
-	 return new ModelAndView("test"); }
 	
-
+/*
 	@RequestMapping(value = "/product")
 	public ModelAndView productsPage() {
 
@@ -64,7 +84,8 @@ public class FurnitureController {
 		model.addObject("list", list.getlist());
 		return model;
 	}
-
+	*/
+//for retrieving data
 	@RequestMapping(value = "/Registration", method = RequestMethod.GET)
 	public String registrationPage(Map<String, Object> map) {
 		Product prodRegistration = new Product();
@@ -73,7 +94,7 @@ public class FurnitureController {
 		return "Registration";
 
 	}
-
+//for operations
 	@RequestMapping(value = "/Registration.do", method = RequestMethod.GET)
 	public String doActions(@ModelAttribute Product products,
 			BindingResult results, @RequestParam String action,
@@ -91,7 +112,7 @@ public class FurnitureController {
 			break;
 		case "delete":
 			productsService.delete(products.getProductId());
-            productResult=products;
+            productResult=new Product();
 			break;
 		case "search":
                Product searchProducts=productsService.getProduct(products.getProductId());

@@ -19,7 +19,7 @@
 
 </head>
 <body>
-<nav role="navigation" class="navbar navbar-default">
+ <nav role="navigation" class="navbar navbar-default">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
@@ -28,14 +28,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="index" class="navbar-brand">Music Hub</a>
+            <a href="#" class="navbar-brand">OnlineFurniture</a>
         </div>
         <!-- Collection of nav links and other content for toggling -->
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/furnitureshop">Home</a></li>
                 <li><a href="AboutUs">About Us</a></li>
-                <li><a href="product">All Product</a></li>
+                <li><a href="contactUs">Contact Us</a></li>
+                <li><a href="product">Gallery</a></li>
+                <li><a href="Registration">Product Registration</a></li>
                
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -46,6 +48,8 @@
         </div>
 
     </nav>
+
+
 <hr>
 
 <div class="container">

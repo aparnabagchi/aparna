@@ -1,9 +1,11 @@
-<%@ page isELIgnored="false" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Music Hub</title>
+  <title>Online Furniture</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -58,26 +60,26 @@ text-align: center;
 
 <script type="text/javascript" src="resources/js/angular.min.js"></script>
 
-<script type="text/javascript">
+<style>
+table, th , td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+}
+table tr:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+</style>
 
-	var myApp = angular.module("myApp",[]);
-
-	myApp.controller("myCtrl",function($scope){
-		
-		//$scope.data = data;
-		$scope.data = ${dataValue};
-		//$scope.searchKeyword = ${searchKey};
-	});
-	
-	
-</script>
-
-<body ng-app='myApp'>
+<body >
 
 	<script type="text/javascript" src="resources/references/js/jquery-1.12.3.min.js"></script>
 	<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
 
-	<nav role="navigation" class="navbar navbar-default">
+	 <nav role="navigation" class="navbar navbar-default">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
@@ -94,7 +96,9 @@ text-align: center;
                 <li class="active"><a href="/furnitureshop">Home</a></li>
                 <li><a href="AboutUs">About Us</a></li>
                 <li><a href="contactUs">Contact Us</a></li>
-                <li><a href="product">All Product</a></li>
+                <li><a href="product">Gallery</a></li>
+                <li><a href="Registration">Product Registration</a></li>
+               
             </ul>
             <ul class="nav navbar-nav navbar-right">
       <li><a href="signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -106,22 +110,14 @@ text-align: center;
     </nav>
 
 
+
+
 	<br>
 	<br>
 
 					
 					
-					<div class="container">
 					
-					
-					<input type="text" id="search" value="" placeholder="Enter Search Keyword..." class="form-control" data-ng-model="searchKeyword" ng-init="searchKeyword ='${param.item}'" />
-					
-					</div>
-					
-					
-					<br><br>
-					
-					<!--  -->
 					
 <br><br>
 					
@@ -133,42 +129,30 @@ text-align: center;
 					
 					
 					
-					<div class="" >
-				
-								<div style=" width: 100%; font-style: italic; font-weight: bold; font-size: 1.2vw; font-family: Segoe UI, Tahoma, sans-serif;" ng-controller='myCtrl' class="table-responsive">
-				
-									<div class="rTableHeading">
-									
-										<div class="col-xs-2">Product Id</div>
-										<div class="col-xs-2">Group Name</div>
-										<div class="col-xs-2">Name</div>
-										<div class="col-xs-1">Price</div>
-										<div class="col-xs-1">Qty</div>
-										<div class="col-xs-2">Description</div>
-										<div class="col-xs-2">Image</div>
-									
-									</div>
-				
-								
-									<div ng-repeat="x in data | filter: searchKeyword" class="rTableRow" >
-									
-										<div style="padding-top: 2%;padding-bottom: 2%;" class="col-xs-2">{{ x.Product_Id}}</div>
-										<div style="padding-top: 2%;padding-bottom: 2%;" class="col-xs-2">{{ x.Group_Name}}</div>
-										<div style="padding-top: 2%;padding-bottom: 2%;" class="col-xs-2">{{ x.Name }}</div>
-										<div style="padding-top: 2%;padding-bottom: 2%;" class="col-xs-1">{{ x.Price }}</div>
-										<div style="padding-top: 2%;padding-bottom: 2%;" class="col-xs-1">{{ x.Qty }}</div>
-										<div style="padding-top: 2%;padding-bottom: 2%;" class="col-xs-2">{{ x.Description }}</div>
-										<div style="padding-top: 2%;padding-bottom: 2%;" class="col-xs-2"><img ng-src="{{ x.Image }}" width="120" height="60" class="img-circle img-responsive"></img></div>
-										
-										<div style="width: 100%; height: 1px; background-color: #CCCCCC;"></div>
-										
-									</div>
-					
-								</div>
-				
-							
-				
-						</div>
+		 <h2>List of Products</h2>  
+    <table>
+        <tr>
+            <td>Prodcut ID</td><td>Group Name</td><td>Name</td><td>Price</td><td>Quanity</td><td>Description</td><td>Image</td>
+        <td colspan="2">Operations</td></tr>
+        <c:forEach items="${products}" var="product">
+            <tr>
+            <td>${product.productId}</td>
+            <td>${product.groupName}</td>
+            <td>${product.name}</td>
+             <td>${product.price}</td>
+            <td>${product.quantity}</td>
+            <td>${product.description}</td>
+            <td><img src="${product.imagePath}" height="50" width="50"/></td>
+          
+ <td><a href="<spring:url value="/viewProduct?productId=${product.productId }" />"  class="btn btn-primary" >
+					<span class="glyphicon-info-sign glyphicon"> </span>  Details</a></td>
+        <td><a href="<spring:url value="/deleteProduct?productId=${product.productId }" />"  class="btn btn-primary" >
+					<span class="glyphicon-info-sign glyphicon"> </span>  Delete</a></td> </tr>
+     
+        </c:forEach>
+    </table>
+    <br/>
+    <a href="<c:url value='/Registration' />"><span class="glyphicon-info-sign glyphicon"> </span> Add New Product</a>	
 				<!--  -->
 	            </div>
 				</div>
