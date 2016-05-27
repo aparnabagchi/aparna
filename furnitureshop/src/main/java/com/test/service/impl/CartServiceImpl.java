@@ -1,0 +1,25 @@
+package com.test.service.impl;
+
+
+import com.test.dao.CartDao;
+import com.test.model.Cart;
+import com.test.service.CartService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+@Service
+public class CartServiceImpl implements CartService{
+
+    @Autowired
+    private CartDao cartDao;
+
+    public Cart getCartById(int cartId){
+        return cartDao.getCartById(cartId);
+    }
+
+    public void update(Cart cart){
+        cartDao.update(cart);
+    }
+
+} // The End of Class;

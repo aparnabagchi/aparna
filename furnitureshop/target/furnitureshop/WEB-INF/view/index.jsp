@@ -1,186 +1,96 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>OnlineFurniture</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-     <style>
-   .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 100%;
-      height:400px;
-      margin: auto;
-  }
-  .circle {
-margin-left: auto;
-margin-right: auto;
-border-radius: 50%;
-width: 25%;
-position: relative;
-}
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ include file="/WEB-INF/view/template/header.jsp" %>
 
-.circle-border {
-border: 1px solid black;
-}
+        <!-- Carousel
+        ================================================== -->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img class="first-slide home-image" src="<c:url value="/resources/images/fslider1.jpg" />" alt="First slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Welcome to Le's Furniture Store</h1>
+                            <p>Here you can browse and buy Instruments. Records and music related Accessories. Order How for Your Amazing New Kit!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="second-slide home-image" src="<c:url value="/resources/images/slider.jpg" />" alt="Second slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Facts You Should know About Music</h1>
+                            <p>Music brings jey, to all of our hearts. It's one of those, emotional arts.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="third-slide home-image " src="<c:url value="/resources/images/fslider2.jpg" />" alt="Third slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>It's A Jazz Affair</h1>
+                            <p>Through ups and downs, Somehow I manage to survive in life.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div><!-- /.carousel -->
 
-.circle-solid{
-background-color: whitesmoke;
-}
 
-.circle:before {
-content: "";
-display: block;
-padding-top: 100%;
-}
+        <!-- Marketing messaging and featurettes
+        ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
 
-.circle-inner {
-position: absolute;
-top: 0;
-left: 0;
-bottom: 0;
-right: 0;
-text-align: center;
-}
-  </style>
-</head>
-<body>
+        <div class="container marketing">
 
-   
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <a class="btn btn-default" href="<c:url value="/product/productList?searchCondition=Instrument" />" role="button">
+                        <img class="img-circle" src="<c:url value="/resources/images/fslider1.jpg"/>" alt="Instrument Image" width="140" height="140">
+                    </a>
 
-    <nav role="navigation" class="navbar navbar-default">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="#" class="navbar-brand">OnlineFurniture</a>
-        </div>
-        <!-- Collection of nav links and other content for toggling -->
-        <div id="navbarCollapse" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="/furnitureshop">Home</a></li>
-                <li><a href="AboutUs">About Us</a></li>
-                <li><a href="contactUs">Contact Us</a></li>
-                <li><a href="product">Gallery</a></li>
-                <li><a href="Registration">Product Registration</a></li>
-               
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-      <li><a href="signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-       
-    </ul>
-        </div>
+                    <h2>Instrument:</h2>
+                    <p>Well crafted and delicate instruments</p>
 
-    </nav>
+                </div>
 
 
 
-<div class="container">
-  <br>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="/#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-     
-    </ol>
+                <div class="col-lg-4">
+                    <a class="btn btn-default" href="<c:url value="/product/productList?searchCondition=Record" />" role="button">
+                        <img class="img-circle" src="<c:url value="/resources/images/slider.jpg"/>" alt="Instrument Image" width="140" height="140">
+                    </a>
 
-    <!-- Wrapper for slides -->
-    
- 
+                    <h2>Discography:</h2>
+                    <p>An exceptional collections of music records in favor of the traditional and modern genre of jazz </p>
 
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <img src="resources/images/bed.jpg" alt="furniture_categories" width="460" height="345">
-      </div>
-
-      <div class="item">
-        <img src="resources/images/sofa.jpg" alt="furniture_categories" width="460" height="345">
-      </div>
-    
-      <div class="item">
-        <img src="resources/images/storage.jpg" alt="furniture_categories" width="460" height="345">
-      </div>
-
-      
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
- 
-<div class="content-row">
-<table class="table" style="height: 60%; width: 120%">
-   <tr>
-   <td>
-   <a href="product?item=Flute" > <img src="resources/images/sofa1.jpg" class="img-responsive img-circle" alt="Sofa Image"></a>
-   <div><a href="product?item=Sofa" >
-       <h4>Sofa</h4></a></div>
-  </td>
-   <td>
-   <img src="resources/images/bed1.jpg" class="img-responsive img-circle" alt="Bed Image">
-   <a href="product?item=Bed" >
-        <h4>Bed</h4></a>
-   </td>
-   <td>
-   <img src="resources/images/storage1.jpg" class="img-responsive img-circle" alt="Storage Image">
-   <a href="product?item=Storage" >
-        <h4>Storage</h4></a></td>
-   </tr>
-   
-   <tr>
-   <td>
-   <h2>Sofa</h2>
-     <p style=" text-align: justify;">The piano is a musical instrument played using a keyboard,[1] which is a row of keys (small levers) that the performer presses down or strikes with the fingers and thumbs of both hands. o and ensemble performances, accompaniment, and for composing and rehearsal.</p>
-   </td>
-   <td>
-   <h2>Beds</h2>
-        <p style=" text-align: justify;">The guitar is a popular musical instrument classified as a string instrument with anywhere from 4 to 18 strings, usually having 6. The modern guitar was preceded by the gittern, the vihuela, the four-course Renaissance guitar, and the five-course baroque guitar, all of which contributed to the development of the modern six-string instrument.</p>
-   </td>
-   <td>
-             <h2>Storage</h2>
-         <p style=" text-align: justify;">No matter where you are in the world, we'll help you find musical instruments that fit you, your music and your style.
-
-Our site appears in English, but all prices will display in your local currency. As you shop, we'll only show you items that ship to India.your music and your style.</p>
-   
-   </td></tr>
-   
-</table>
-  
-
-  </div>
-       
+                </div>
 
 
+                <div class="col-lg-4">
+                    <a class="btn btn-default" href="<c:url value="/product/productList?searchCondition=Accessory" />" role="button">
+                        <img class="img-circle" src="<c:url value="/resources/images/fslider2.jpg"/>" alt="Instrument Image" width="140" height="140">
+                    </a>
 
-<script src="http://code.jquery.com/jquery-latest.min.js">
-</script>
-<!--Bootstrap-->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<BR><br><br><br><br><br><br><br>
-<div class="bottom">
-<nav class="navbar navbar-default">  
-   <div class="container-fluid"> 
-   @Copyright 2016
-     </div>
-</nav> 
-</div>
-</body>
-</html>
+                    <h2>Accessories:</h2>
+                    <p>All musical and related geeky goods</p>
+
+                </div>
+            </div>
+
+
+<%@ include file="/WEB-INF/view/template/footer.jsp" %>

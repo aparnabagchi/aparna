@@ -55,5 +55,4 @@ public class Users {
         this.customerId = customerId;
     }
 
-
-}
+} // The End of Class;
