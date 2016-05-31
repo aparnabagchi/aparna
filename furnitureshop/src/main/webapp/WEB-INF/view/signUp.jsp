@@ -1,109 +1,65 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1"> 
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>  
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
-  
-</head>
-<body>
- <nav role="navigation" class="navbar navbar-default">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="#" class="navbar-brand">OnlineFurniture</a>
-        </div>
-        <!-- Collection of nav links and other content for toggling -->
-        <div id="navbarCollapse" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="/furnitureshop">Home</a></li>
-                <li><a href="AboutUs">About Us</a></li>
-                <li><a href="contactUs">Contact Us</a></li>
-                <li><a href="product">Gallery</a></li>
-                <li><a href="Registration">Product Registration</a></li>
-               
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-      <li><a href="signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+<%@ include file="/WEB-INF/view/template/header.jsp" %>
+
+    <script src="resources/js/jquery.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/jquery.prettyPhoto.js"></script>
+    <script src="resources/js/jquery.isotope.min.js"></script>
+    <script src="resources/js/main.js"></script>
+    <script src="resources/js/wow.min.js"></script>
+     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/css/font-awesome.min.css" rel="stylesheet">
+    <link href="resources/css/prettyPhoto.css" rel="stylesheet">
+	<link href="resources/css/item_hover.css" rel="stylesheet">
+    <link href="resources/css/animate.min.css" rel="stylesheet">
+    <link href="resources/css/main.css" rel="stylesheet">
+    <link href="resources/fonts/stylesheet.css" rel="stylesheet">
+    <link href="resources/css/responsive.css" rel="stylesheet">
+    
+
+ <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
+	<style>
+    .error {
+        color: red; font-weight: bold;
+    }
+</style>
+  <div align="center">
+        <form:form action="adduser" method="post" commandName="instuser">
+           <div class="container">
+					<div class="row">
+					    <div class="col-lg-12 col-centered">
+					    	<div class="table-responsive">
+							  <table style="width: 80%;" class="table center">
+                <tr>
+                    <td colspan="2" align="center"><h2>Sign Up</h2></td>
+                </tr>
+                <tr>
+                    <td>User Name:</td>
+                    <td><form:input path="username" /></td>
+                     <td align="left"><form:errors path="username" cssClass="error"/></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><form:password path="password" /></td>
+                     <td align="left"><form:errors path="password" cssClass="error"/></td> 
+                </tr>
        
-    </ul>
+                <tr>
+                    <td>Address:</td>
+                    <td><form:input path="address" /></td>
+                      <td align="left"><form:errors path="address" cssClass="error"/></td>
+                </tr>
+          <tr> <td colspan="2" >
+							  		<div class="row">
+									    <div class="col-md-2 col-md-offset-5"> <input value="Submit" type="submit" class="btn btn-default"></button> </div>
+									</div>
+							  		</td>
+							  	
+							  	</tr>
+							  </table>
+							</div>
+					    </div>
+					</div>
+					</div>
+        </form:form>
         </div>
-
-    </nav>
-
-
-
-<h3>SignUp</h3>
-<p class="required small">* = Required fields</p>
-<!--begin HTML Form-->
-<form class="form-horizontal" role="form" method="post" action=" ">
-
-<div class="form-group">
-<label for="name" class="col-md-4  control-label"><span class="required">*</span> Name:</label>
-<div class="col-md-4 ">
-<input type="text" class="form-control" id="name" name="name" placeholder="First & Last">
-</div>
-</div>
-
-<div class="form-group">
-<label for="email" class="col-md-4  control-label"><span class="required">*</span> Email: </label>
-<div class="col-md-4 ">
-<input type="email" class="form-control" id="email" name="email" placeholder="you@domain.com">
-</div>
-</div>
-
-<div class="form-group">
-<label for="phone" class="col-md-4  control-label">Phone: </label>
-<div class="col-md-4 ">
-<input type="tel" class="form-control" id="phone" name="phone" placeholder="(123) 456-7890">
-</div>
-</div>
-
-<div class="form-group">
-<label for="message" class="col-md-4 control-label"><span class="required">*</span> Message:</label>
-<div class="col-md-4 ">
-<textarea class="form-control" row="4" name="message" placeholder="Tell us your story?"></textarea>
-</div>
-</div>
-
-
-
-<div class="form-group">
-<div class="col-md-4  col-sm-offset-4">
-<button type="submit" id="submit" name="submit" class="btn-lg btn-primary btn-block">SUBMIT</button>
-</div>
-</div>
-<!--end Form--></form>
-<!--end col block--></div>
-
-<!--end col--></div>
-<!--end row--></div>
-<!--end container--></div>
-<!--Latest jQuery Core Library-->
-<script src="http://code.jquery.com/jquery-latest.min.js">
-</script>
-<!--Bootstrap-->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<BR><br><br><br><br><br><br><br>
-<div class="bottom">
-<nav class="navbar navbar-default">  
-  <div class="container-fluid">  
-   @Copyright 2016
-   
-  </div>  
-</nav> 
-</div>
-</body>
-</html>
+<%@ include file="/WEB-INF/view/template/footer.jsp" %>

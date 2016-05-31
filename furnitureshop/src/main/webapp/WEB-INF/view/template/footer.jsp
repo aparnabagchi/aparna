@@ -15,7 +15,7 @@
 <div class="bottom">
 <nav class="navbar navbar-default">  
   <div class="container-fluid">  
-   @Copyright 2016
+   @Copyright DESIGN AND CODING BY APARNA 2016
    
   </div>  
 </nav> 

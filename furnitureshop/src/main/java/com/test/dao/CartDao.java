@@ -1,15 +1,10 @@
 package com.test.dao;
 
-import java.io.IOException;
-
 import com.test.model.Cart;
+public interface CartDAO {
 
-public interface CartDao {
-
-    Cart getCartById(int cartId);
-
-    Cart validate(int cartId) throws IOException;
-
-    void update(Cart cart);
-
+	public void addTocart(Cart cart);
+	public void deleteFromCart(int cartId);
+	public Cart getFromCart(int cartId);
 }
+

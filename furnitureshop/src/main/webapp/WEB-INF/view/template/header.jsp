@@ -1,85 +1,80 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+<%@taglib prefix="s" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<title>OnlineFurniture</title>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ 
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+    <script src="resources/js/jquery.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/jquery.prettyPhoto.js"></script>
+    <script src="resources/js/jquery.isotope.min.js"></script>
+    <script src="resources/js/main.js"></script>
+    <script src="resources/js/wow.min.js"></script>
 
-    <title>OnlineFurniture</title>
+<nav class="navbar navbar-inverse">
 
-    <!-- Angular.JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
-
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-
-
-    <!-- Bootstrap core CSS -->
-    <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
-
-    <!-- MaCarouselin CSS -->
-    <link href="<c:url value="/resources/css/carousel.css" />" rel="stylesheet">
-
-    <!-- Main CSS -->
-    <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+   
+    
+    <script>
+function formSubmit() {
+document.getElementById("logoutForm").submit();
+}
+</script>
+<s:url value="/perform_logout" var="logoutUrl" />
+<form action="${logoutUrl}" method="post" id="logoutForm">
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+</form>
 
 
-    <link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
 
 
-</head>
-<!-- NAVBAR
-================================================== -->
-<body>
-<div class="navbar-wrapper">
-    <div class="container">
 
-        <nav class="navbar navbar-inverse navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">OnlineFurniture</a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="<c:url value="/" />">Home</a></li>
-                        <li><a href="<c:url value="/product/productList/all" />">Products</a></li>
-                        <li><a href="<c:url value="/AboutUs" />">About Us</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav pull-right">
-                        <c:if test="${pageContext.request.userPrincipal.name != null}">
-                            <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
-                            <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
-
-                            <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
-                                <li><a href="<c:url value="/customer/cart" />">Cart</a></li>
-                            </c:if>
-
-                            <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
-                                <li><a href="<c:url value="/admin"/>">Admin</a></li>
-                            </c:if>
-
-                        </c:if>
-
-                        <c:if test="${pageContext.request.userPrincipal.name == null}">
-                            <li><a href="<c:url value="/Login" />">Login</a></li>
-                            <li><a href="<c:url value="/register" />">Register</a></li>
-                        </c:if>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
     </div>
-</div>
+    <div class="collapse navbar-collapse navbar" id="myNavbar">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="${pageContext.request.contextPath }/">Home</a></li>
+      <li><a href="${pageContext.request.contextPath }/AboutUs">About Us</a></li>
+      <li><a href="${pageContext.request.contextPath }/contactUs">Contact Us</a></li>
+      <li><a href="${pageContext.request.contextPath }/product">All products</a></li>
+      </ul>
+
+		<s:if test="${pageContext.request.userPrincipal.name != null}">
+                   
+      <ul class="nav navbar-nav navbar-right">
+                        <li style="color: gray;">Welcome ${pageContext.request.userPrincipal.name} </li>
+                        <li><a href="javascript:formSubmit()"> Logout</a></li> </ul>
+                        <security:authentication var="user"
+                            property="principal.authorities" />
+                        <security:authorize var="loggedIn" access="isAuthenticated()">
+                            <security:authorize access="hasRole('ROLE_ADMIN')">
+                            </security:authorize>
+                            <security:authorize access="hasRole('ROLE_USER')">
+                            </security:authorize>
+                        </security:authorize>
+                </s:if>
+ <ul class="nav navbar-nav navbar-right">
+                <s:if
+                    test="${pageContext.request.userPrincipal.name == null}">
+            <li> <a href="${pageContext.request.contextPath }/Login">Login</a> </li>
+            <li><a href="${pageContext.request.contextPath }/signUp">Sign Up</a></li></s:if> 
+         <s:if test="${pageContext.request.userPrincipal.name == 'aparna'}">    <li><a href="${pageContext.request.contextPath }/Registration">Add New Product</a></li></s:if>
+        </ul>
+    </div>
+
+
+</nav>
+  
+

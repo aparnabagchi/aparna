@@ -13,6 +13,42 @@
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
 }
+ .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      height:400px;
+      margin: auto;
+  }
+  .circle {
+margin-left: auto;
+margin-right: auto;
+border-radius: 50%;
+width: 25%;
+position: relative;
+}
+
+.circle-border {
+border: 1px solid black;
+}
+
+.circle-solid{
+background-color: whitesmoke;
+}
+
+.circle:before {
+content: "";
+display: block;
+padding-top: 100%;
+}
+
+.circle-inner {
+position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+text-align: center;
+}
 .btn-default:active,
 .btn-primary:active,
 .btn-success:active,

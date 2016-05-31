@@ -5,13 +5,10 @@ import java.util.List;
 import com.test.model.Product;
 
 public interface ProductDao {
-	 List<Product> getProductList();
 
-	    Product getProductById (int id);
-
-	    void addProduct(Product product);
-
-	    void editProduct(Product product);
-
-	    void deleteProduct(Product product);
+	public void add(Product products);
+	public void edit(Product products);
+	public void delete(int productId);
+	public Product getProduct(int productId);
+	public List getAllProducts();
 }

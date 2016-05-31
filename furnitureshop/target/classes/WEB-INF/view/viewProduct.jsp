@@ -2,96 +2,32 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>OnlineFurniture</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-     <style>
-   .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 100%;
-      height:400px;
-      margin: auto;
-  }
-  .circle {
-margin-left: auto;
-margin-right: auto;
-border-radius: 50%;
-width: 25%;
-position: relative;
-}
+<%@ include file="/WEB-INF/view/template/header.jsp" %>
 
-.circle-border {
-border: 1px solid black;
-}
-
-.circle-solid{
-background-color: whitesmoke;
-}
-
-.circle:before {
-content: "";
-display: block;
-padding-top: 100%;
-}
-
-.circle-inner {
-position: absolute;
-top: 0;
-left: 0;
-bottom: 0;
-right: 0;
-text-align: center;
-}
-  </style>
-</head>
-<body>
-
-   
-
-    <nav role="navigation" class="navbar navbar-default">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="#" class="navbar-brand">OnlineFurniture</a>
-        </div>
-        <!-- Collection of nav links and other content for toggling -->
-        <div id="navbarCollapse" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="/furnitureshop">Home</a></li>
-                <li><a href="AboutUs">About Us</a></li>
-                <li><a href="contactUs">Contact Us</a></li>
-                <li><a href="product">Gallery</a></li>
-                <li><a href="Registration">Product Registration</a></li>
-               
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-      <li><a href="signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-       
-    </ul>
-        </div>
-
-    </nav>
-
+    <script src="resources/js/jquery.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/jquery.prettyPhoto.js"></script>
+    <script src="resources/js/jquery.isotope.min.js"></script>
+    <script src="resources/js/main.js"></script>
+    <script src="resources/js/wow.min.js"></script>
+     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/css/font-awesome.min.css" rel="stylesheet">
+    <link href="resources/css/prettyPhoto.css" rel="stylesheet">
+	<link href="resources/css/item_hover.css" rel="stylesheet">
+    <link href="resources/css/animate.min.css" rel="stylesheet">
+    <link href="resources/css/main.css" rel="stylesheet">
+    <link href="resources/fonts/stylesheet.css" rel="stylesheet">
+    <link href="resources/css/responsive.css" rel="stylesheet">
+    
 <section class="container" data-ng-app="cartApp" style="height: 430px;">
 
-		<div class="row">
+		<div class="row"  data-ng-app="myApp" data-ng-controller="myCtrl">
 			<div class="col-md-6">
-				<img src="${product.imagePath}" height="150" width=150 />
+		<img src="<c:url value='/resources/${product.productId }.jpg' />" height="200" width="200" />
+
 			</div>
 			<div class="col-md-6">
-
+                <h2 style="color: blue;">Product Information</h2>
 				<h3>${product.name}</h3>
 				<p>${product.description}</p>
 				<p>
@@ -106,13 +42,12 @@ text-align: center;
 				
 				<h4>Rs &nbsp;${product.price}  &nbsp;INR</h4>
 			
-				<p ng-controller="cartController">
-					<a href="<spring:url value="/product" />" class="btn btn-success">
-						<span class="glyphicon-circle-arrow-left glyphicon"></span> back
+				<p data-ng-controller="cartController">
+					<a href="<spring:url value="/product" />" class="btn btn-success">Back
+						
 					</a> 
-					<a href="#" ng-click = "addToCart('${product.productId}')" class="btn btn-warning btn-large"> <span
-						class="glyphicon-shopping-cart glyphicon"> </span> Order Now
-					</a>
+					<a href="<spring:url value="/cart?productId=${product.productId }"/>" class="btn btn-warning btn-large" data-ng-click="addToCart('${product.productId}')">
+					<span class="glyphicon glyphicon-shopping-cart"></span> Order Now</a>
 				</p>
 			
 			</div>
@@ -120,19 +55,6 @@ text-align: center;
 	</section>
        
 
-
-
-<script src="http://code.jquery.com/jquery-latest.min.js">
-</script>
-<!--Bootstrap-->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<BR><br><br><br><br><br><br><br>
-<div class="bottom">
-<nav class="navbar navbar-default">  
-   <div class="container-fluid"> 
-   @Copyright 2016
-     </div>
-</nav> 
-</div>
+<%@ include file="/WEB-INF/view/template/footer.jsp" %>
 </body>
 </html>

@@ -1,96 +1,156 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="/WEB-INF/view/template/header.jsp" %>
 
-        <!-- Carousel
-        ================================================== -->
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img class="first-slide home-image" src="<c:url value="/resources/images/fslider1.jpg" />" alt="First slide">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Welcome to Le's Furniture Store</h1>
-                            <p>Here you can browse and buy Instruments. Records and music related Accessories. Order How for Your Amazing New Kit!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <img class="second-slide home-image" src="<c:url value="/resources/images/slider.jpg" />" alt="Second slide">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Facts You Should know About Music</h1>
-                            <p>Music brings jey, to all of our hearts. It's one of those, emotional arts.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <img class="third-slide home-image " src="<c:url value="/resources/images/fslider2.jpg" />" alt="Third slide">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>It's A Jazz Affair</h1>
-                            <p>Through ups and downs, Somehow I manage to survive in life.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div><!-- /.carousel -->
+    <script src="resources/js/jquery.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/jquery.prettyPhoto.js"></script>
+    <script src="resources/js/jquery.isotope.min.js"></script>
+    <script src="resources/js/main.js"></script>
+    <script src="resources/js/wow.min.js"></script>
+     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/css/font-awesome.min.css" rel="stylesheet">
+    <link href="resources/css/prettyPhoto.css" rel="stylesheet">
+	<link href="resources/css/item_hover.css" rel="stylesheet">
+    <link href="resources/css/animate.min.css" rel="stylesheet">
+    <link href="resources/css/main.css" rel="stylesheet">
+    <link href="resources/fonts/stylesheet.css" rel="stylesheet">
+    <link href="resources/css/responsive.css" rel="stylesheet">
+    
+<div class="container">
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="/#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+     
+    </ol>
+
+    <!-- Wrapper for slides -->
+    
+ 
+
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="resources/images/4.jpg" alt="furniture_categories" width="3500" height="3500">
+       
+      </div>
+
+      <div class="item">
+        <img src="resources/images/5.jpg" alt="furniture_categories" width="3500" height="3500">
+      </div>
+    
+      <div class="item">
+        <img src="resources/images/6.jpg" alt="furniture_categories" width="3500" height="1000">
+      </div>
+
+      
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+ </div>
 
 
-        <!-- Marketing messaging and featurettes
-        ================================================== -->
-        <!-- Wrap the rest of the page in another container to center all the content. -->
-
-        <div class="container marketing">
-
-            <!-- Three columns of text below the carousel -->
+<section id="recent-works" class="shortcode-item">
+        <div class="container">
+            <h2>Furniture_Gallery</h2>
+            <br>
             <div class="row">
-                <div class="col-lg-4">
-                    <a class="btn btn-default" href="<c:url value="/product/productList?searchCondition=Instrument" />" role="button">
-                        <img class="img-circle" src="<c:url value="/resources/images/fslider1.jpg"/>" alt="Instrument Image" width="140" height="140">
-                    </a>
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img  class="img-circle img-responsive"  src="resources/images/1.jpg" alt="" alt="" height="400" width="400">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="${pageContext.request.contextPath }/product?item=Sofa">Sofa</a> </h3>
+                                
+                                <a class="preview" href="resources/images/sofa.jpg" ><i class="fa fa-eye"></i> View</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
 
-                    <h2>Instrument:</h2>
-                    <p>Well crafted and delicate instruments</p>
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-circle img-responsive"  src="resources/images/bed1.jpg" alt="" alt="" height="400" width="400">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="${pageContext.request.contextPath }/product?item=Bed">Bed</a></h3>
+                               
+                                <a class="preview" href="resources/images/bed1.jpg" ><i class="fa fa-eye"></i> View</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
 
-                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-circle img-responsive"  src="resources/images/3.jpg" alt="" alt="" height="400" width="400">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="${pageContext.request.contextPath }/product?item=Storage">Storage</a></h3>
+                               
+                                <a class="preview" href="resources/images/3.jpg" ><i class="fa fa-eye"></i> View</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
 
+                  <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-circle img-responsive"  src="resources/images/divan.jpg" alt="" height="400" width="400">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="${pageContext.request.contextPath }/product?item=Entertainment">Entertainment</a></h3>
+                                
+                                <a class="preview" href="resources/images/divan.jpg" ><i class="fa fa-eye"></i> View</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
 
-
-                <div class="col-lg-4">
-                    <a class="btn btn-default" href="<c:url value="/product/productList?searchCondition=Record" />" role="button">
-                        <img class="img-circle" src="<c:url value="/resources/images/slider.jpg"/>" alt="Instrument Image" width="140" height="140">
-                    </a>
-
-                    <h2>Discography:</h2>
-                    <p>An exceptional collections of music records in favor of the traditional and modern genre of jazz </p>
-
-                </div>
-
-
-                <div class="col-lg-4">
-                    <a class="btn btn-default" href="<c:url value="/product/productList?searchCondition=Accessory" />" role="button">
-                        <img class="img-circle" src="<c:url value="/resources/images/fslider2.jpg"/>" alt="Instrument Image" width="140" height="140">
-                    </a>
-
-                    <h2>Accessories:</h2>
-                    <p>All musical and related geeky goods</p>
-
-                </div>
+            
+    </section>
+ 
+  
+<div class="line">
+            <div class="margin">
+               <div class="col-xs-12 col-sm-4 col-md-3 margin-bottom">
+                  <div class="box">
+                     <h2>Sofa</h2>
+                     <p>Modern Furniture reflects the design philosophy of form following function prevalent in modernism. These designs represent the ideals of cutting excess, practicality and an absence of decoration.  </p>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-4 col-md-3 margin-bottom">
+                  <div class="box">
+                     <h2>Bed</h2>
+                     <p>The forms of furniture are visually light (like in the use of polished metal and engineered wood) and follow minimalist principles of design which are influenced by architectural concepts like the cantilever.</p>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-4 col-md-3 margin-bottom">
+                  <div class="box">
+                     <h2>Storage</h2>
+                     <p>Modern Furniture reflects the design philosophy of form following function prevalent in modernism. These designs represent the ideals of cutting excess, practicality and an absence of decoration.</p>
+                  </div>
+               </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 margin-bottom">
+                  <div class="box">
+                     <h2>Entertainment</h2>
+                     <p>The forms of furniture are visually light (like in the use of polished metal and engineered wood) and follow minimalist principles of design which are influenced by architectural concepts like the cantilever.</p>
+                  </div>
+               </div>
             </div>
+         </div>
+       
+
 
 
 <%@ include file="/WEB-INF/view/template/footer.jsp" %>

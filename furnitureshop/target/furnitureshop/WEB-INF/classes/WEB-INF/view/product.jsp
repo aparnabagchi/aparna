@@ -1,193 +1,141 @@
-<%@ page isELIgnored="false" %>
+<%@ include file="/WEB-INF/view/template/header.jsp"%>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Music Hub</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-     <style>
-   .carousel-inner > .item > img,
-  .carousel-inner > .item > a > img {
-      width: 100%;
-      height:400px;
-      margin: auto;
-  }
-  .circle {
-margin-left: auto;
-margin-right: auto;
-border-radius: 50%;
-width: 25%;
-position: relative;
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+
+
+    <script src="resources/js/jquery.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/jquery.prettyPhoto.js"></script>
+    <script src="resources/js/jquery.isotope.min.js"></script>
+    <script src="resources/js/main.js"></script>
+    <script src="resources/js/wow.min.js"></script>
+     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/css/font-awesome.min.css" rel="stylesheet">
+    <link href="resources/css/prettyPhoto.css" rel="stylesheet">
+	<link href="resources/css/item_hover.css" rel="stylesheet">
+    <link href="resources/css/animate.min.css" rel="stylesheet">
+    <link href="resources/css/main.css" rel="stylesheet">
+    <link href="resources/fonts/stylesheet.css" rel="stylesheet">
+    <link href="resources/css/responsive.css" rel="stylesheet">
+    
+
+
+<br>
+<br>
+<style>
+table, th, td {
+	border: 1px solid grey;
+	border-collapse: collapse;
+	padding: 5px;
 }
 
-.circle-border {
-border: 1px solid black;
+table tr:nth-child(odd) {
+	background-color: #f1f1f1;
 }
 
-.circle-solid{
-background-color: whitesmoke;
+table tr:nth-child(even) {
+	background-color: #ffffff;
 }
-
-.circle:before {
-content: "";
-display: block;
-padding-top: 100%;
-}
-
-.circle-inner {
-position: absolute;
-top: 0;
-left: 0;
-bottom: 0;
-right: 0;
-text-align: center;
-}
-.rTable {   	display: table;   	width: 100%; } 
-	.rTableRow {   	display: table-row; border-bottom: 1px solid #000000; } 
-	.rTableHeading {   	display: table-header-group;   	background-color: #ddd; } 
-	.rTableCell, .rTableHead {   	display: table-cell;   	padding: 3px 10px;   	border: 1px solid #999999; } 
-	.rTableHeading {   	display: table-header-group;   	background-color: #ddd;   	font-weight: bold; } 
-	.rTableFoot {   	display: table-footer-group;   	font-weight: bold;   	background-color: #ddd; } 
-	.rTableBody {   	display: table-row-group; }
-  </style>
-</head>
-
+</style>
 <script type="text/javascript" src="resources/js/angular.min.js"></script>
 
-<script type="text/javascript">
 
-	var myApp = angular.module("myApp",[]);
 
-	myApp.controller("myCtrl",function($scope){
-		
-		//$scope.data = data;
-		$scope.data = ${dataValue};
-		//$scope.searchKeyword = ${searchKey};
+<br>
+<br>
+<!--  -->
+<div class="container">
+	<div class="row">
+		<div class="col-lg-9 col-centered">
+			<!--  -->
+
+			<div class="">
+
+				<label>Search Element <input type="text" id="search"
+					data-ng-model="search" value="${param.item}"
+					data-ng-init="search='${param.item}'"></label>
+<script>
+
+
+$( window ).load(function() {
+	searchTable($('#search').val());
 	});
-	
-	
+	$(document).ready(function() {
+		$('#search').keyup(function() {
+			searchTable($(this).val());
+		});
+	});
+
+	function searchTable(inputVal) {
+		var table = $('#myTable');
+		table.find('tr').each(function(index, row) {
+			var allCells = $(row).find('td');
+			if (allCells.length > 0) {
+				var found = false;
+				allCells.each(function(index, td) {
+					var regExp = new RegExp(inputVal, 'i');
+					if (regExp.test($(td).text())) {
+						found = true;
+						return false;
+					}
+				});
+				if (found == true)
+					$(row).show();
+				else
+					$(row).hide();
+			}
+		});
+	}
 </script>
 
-<body ng-app='myApp'>
+				<h2>List of Products</h2>
+				<table id="myTable">
+					<tr>
+						<td>Prodcut ID</td>
+						<td>Group Name</td>
+						<td>Name</td>
+						<td>Price</td>
+						<td>Quanity</td>
+						<td>Description</td>
+						<td>Image</td>
+						<td>Operations</td>
+					</tr>
+					<s:forEach items="${products}" var="product">
+<tr>
+						<td>${product.productId}</td>
+						<td>${product.groupName}</td>
+						<td>${product.name}</td>
+						<td>${product.price}</td>
+						<td>${product.quantity}</td>
+						<td>${product.description}</td>
+						<td><img
+							src="<s:url value='/resources/${product.productId}.jpg'/>"></td>
 
-	<script type="text/javascript" src="resources/references/js/jquery-1.12.3.min.js"></script>
-	<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+						<td> <s:if
+								test="${pageContext.request.userPrincipal.name == 'aparna'}">
+								<a
+									href="<spring:url value="/deleteProduct?productId=${product.productId }" />"
+									class="btn btn-primary"> <span
+									class="glyphicon-info-sign glyphicon"> </span> Delete
+								</a>
+								<a
+									href="<spring:url value="/editProduct?productId=${product.productId }" />"
+									class="btn btn-primary"> <span
+									class="glyphicon-info-sign glyphicon"> </span> Edit
+								</a>
+							</s:if> <a
+							href="<spring:url value="/viewProduct?productId=${product.productId }" />"
+							class="btn btn-primary"> <span
+								class="glyphicon-info-sign glyphicon"> </span> Details
+						</a> </td>
+						</tr>
 
-	<nav role="navigation" class="navbar navbar-default">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="#" class="navbar-brand">OnlineFurniture</a>
-        </div>
-        <!-- Collection of nav links and other content for toggling -->
-        <div id="navbarCollapse" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="/furnitureshop">Home</a></li>
-                <li><a href="AboutUs">About Us</a></li>
-                <li><a href="contactUs">Contact Us</a></li>
-                <li><a href="product">All Product</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-      <li><a href="signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-       
-    </ul>
-        </div>
+					</s:forEach>
 
-    </nav>
-
-
-	<br>
-	<br>
-
-					
-					
-					<div class="container">
-					
-					
-					<input type="text" id="search" value="" placeholder="Enter Search Keyword..." class="form-control" data-ng-model="searchKeyword" ng-init="searchKeyword ='${param.item}'" />
-					
-					</div>
-					
-					
-					<br><br>
-					
-					<!--  -->
-					
-<br><br>
-					
-					<!--  -->
-	                <div class="container">
-					<div class="row">
-					<div class="col-lg-9 col-centered">
-					<!--  -->
-					
-					
-					
-					<div class="" >
-				
-								<div style=" width: 100%; font-style: italic; font-weight: bold; font-size: 1.2vw; font-family: Segoe UI, Tahoma, sans-serif;" ng-controller='myCtrl' class="table-responsive">
-				
-									<div class="rTableHeading">
-									
-										<div class="col-xs-2">Product Id</div>
-										<div class="col-xs-2">Group Name</div>
-										<div class="col-xs-2">Name</div>
-										<div class="col-xs-1">Price</div>
-										<div class="col-xs-1">Qty</div>
-										<div class="col-xs-2">Description</div>
-										<div class="col-xs-2">Image</div>
-									
-									</div>
-				
-								
-									<div ng-repeat="x in data | filter: searchKeyword" class="rTableRow" >
-									
-										<div style="padding-top: 2%;padding-bottom: 2%;" class="col-xs-2">{{ x.Product_Id}}</div>
-										<div style="padding-top: 2%;padding-bottom: 2%;" class="col-xs-2">{{ x.Group_Name}}</div>
-										<div style="padding-top: 2%;padding-bottom: 2%;" class="col-xs-2">{{ x.Name }}</div>
-										<div style="padding-top: 2%;padding-bottom: 2%;" class="col-xs-1">{{ x.Price }}</div>
-										<div style="padding-top: 2%;padding-bottom: 2%;" class="col-xs-1">{{ x.Qty }}</div>
-										<div style="padding-top: 2%;padding-bottom: 2%;" class="col-xs-2">{{ x.Description }}</div>
-										<div style="padding-top: 2%;padding-bottom: 2%;" class="col-xs-2"><img ng-src="{{ x.Image }}" width="120" height="60" class="img-circle img-responsive"></img></div>
-										
-										<div style="width: 100%; height: 1px; background-color: #CCCCCC;"></div>
-										
-									</div>
-					
-								</div>
-				
-							
-				
-						</div>
-				<!--  -->
-	            </div>
-				</div>
-				</div>
-				<!--  -->								
-							
-				
-				<!--  -->
-				<script src="http://code.jquery.com/jquery-latest.min.js">
-</script>
-<!--Bootstrap-->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<BR><br><br><br><br><br><br><br>
-<div class="bottom">
-<nav class="navbar navbar-default">  
-   <div class="container-fluid"> 
-   @Copyright 2016
-     </div>
-</nav> 
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
-</body>
 
