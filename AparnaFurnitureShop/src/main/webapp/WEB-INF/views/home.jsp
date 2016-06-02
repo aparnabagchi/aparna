@@ -72,7 +72,7 @@
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="<c:url value="/product/productList?searchCondition=Sofa" />">Sofa</a> </h3>
-                              
+                              <a class="preview" href="resources/images/1.jpg" ><i class="fa fa-eye"></i> View</a>
                             </div> 
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="<c:url value="/product/productList?searchCondition=Bed" />">Bed</a></h3>
-                              
+                              <a class="preview" href="resources/images/3.jpg" ><i class="fa fa-eye"></i> View</a>
                             </div> 
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                         <div class="overlay">
                             <div class="recent-work-inner">
                                 <h3><a href="<c:url value="/product/productList?searchCondition=Storage" />">Storage</a></h3>
-                               
+                               <a class="preview" href="resources/images/2.jpg" ><i class="fa fa-eye"></i> View</a>
                             </div> 
                         </div>
                     </div>
